@@ -9,3 +9,4 @@ langchain_chroma
 langchainhub
 pypdf
 rapidocr-onnxruntime
+protobuf==3.20.3
