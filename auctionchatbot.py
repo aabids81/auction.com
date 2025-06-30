@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import os
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
@@ -10,6 +11,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 load_dotenv()
+os.environ["CHROMA_TELEMETRY"] = "False"
 
 st.title("Auction.com Chatbot")
 st.write("This chatbot is trained on 2 foreclosure documents provided by Mike's Team. As we get more training data, this chatbots capabilities can be significantly enhanced") 
