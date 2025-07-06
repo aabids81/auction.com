@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
-from langchain_chroma import Chroma
+#from langchain_chroma import Chroma
+from langchain.vectorstores import FAISS
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
@@ -33,7 +34,8 @@ def get_vectorstore():
     docs = splitter.split_documents(data)
 
     embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-    return Chroma.from_documents(docs, embedding=embeddings)
+    return FAISS.from_documents(docs, embedding=embeddings)
+    #return Chroma.from_documents(docs, embedding=embeddings)
 
 vectorstore = get_vectorstore()
 retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 10})
