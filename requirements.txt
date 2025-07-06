@@ -1,8 +1,8 @@
 langchain==0.1.14
-langchain_community==0.0.21
+langchain_community==0.0.33
 langchain-google-genai==0.0.8
 langchainhub==0.1.13
-langchain_chroma==0.0.7
+langchain_chroma==0.1.4
 chromadb==0.4.24
 
 sentence-transformers==2.6.1
